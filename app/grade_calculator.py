@@ -87,8 +87,37 @@ class GradeCalculator:
     def calculate_optimistic_minimum_average_grade(grades:Grades, weights:GradeWeights) -> float:
         """
         Calculate the minimum average percentage grade 
-        needed for all ungraded assignments to get an A in the class.
+        needed in all ungraded assignments to get an A in the class.
         """
 
-        # Dummy
-        return 1
+        graded_total:float = 0
+        ungraded_weights:float = 0
+
+        if grades.quiz_1 is None:
+            ungraded_weights += weights.quizzes / 2
+        else:
+            graded_total += grades.quiz_1 * (weights.quizzes / 2)
+
+        if grades.quiz_2 is None:
+            ungraded_weights += weights.quizzes / 2
+        else:
+            graded_total += grades.quiz_2 * (weights.quizzes / 2)
+
+        if grades.midterm is None:
+            ungraded_weights += weights.midterm
+        else:
+            graded_total += grades.midterm * weights.midterm
+
+        if grades.project is None:
+            ungraded_weights += weights.project
+        else:
+            graded_total += grades.project * weights.project
+
+        if grades.final is None:
+            ungraded_weights += weights.final
+        else:
+            graded_total += grades.final * weights.final
+
+        minimum_average_grade = (0.91 - graded_total) / ungraded_weights
+
+        return minimum_average_grade

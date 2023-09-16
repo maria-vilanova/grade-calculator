@@ -12,6 +12,8 @@ weights = GradeWeights()
 
 # Set grades achieved so far
 my_grades.quiz_1 = 0.78 # Received 78% in the first quiz
+my_grades.quiz_2 = 0.6 # Received 60% in the second quiz
+my_grades.midterm = 0.8 # Received 80% in the midterm
 
 # Print out the grades to console
 print(my_grades)
@@ -32,4 +34,4 @@ print(f'If all other assignments are 100%, the overall course would be {optimist
 # Calculate minimum average grade needed in ungraded assignments to get an A in the course
 minimum_average_percentage_grade = GradeCalculator.calculate_optimistic_minimum_average_grade(my_grades, weights)
 minimum_average_letter_grade = GradeCalculator.calculate_letter_grade(minimum_average_percentage_grade)
-print(f'To get an A in the course, you will need a minimum of {minimum_average_percentage_grade*100}% in all ungraded assignments, which is a {minimum_average_letter_grade}.')
+print(f'To get an A in the course, you will need a minimum of {round(minimum_average_percentage_grade*100, 2)}% in all ungraded assignments, which is a {minimum_average_letter_grade}.')
