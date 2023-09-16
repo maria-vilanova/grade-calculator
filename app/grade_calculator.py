@@ -82,3 +82,13 @@ class GradeCalculator:
             return 'D'
         else:
             return 'F'
+        
+    @staticmethod
+    def calculate_optimistic_minimum_average_grade(grades:Grades, weights:GradeWeights) -> float:
+        """
+        Calculate the minimum average percentage grade 
+        needed for all ungraded assignments to get an A in the class.
+        """
+
+        # Dummy
+        return 1
